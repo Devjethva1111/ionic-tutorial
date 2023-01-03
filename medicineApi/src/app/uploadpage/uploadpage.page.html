@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Uploadpage</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <!-- File Path and Chooser -->
+
+    <div class="ion-padding">
+        <ion-button (click)="PickFile()" expand="block" color="dark">Pick File</ion-button>
+        <div>
+            <ion-item>
+                {{returnpath}}
+            </ion-item>
+        </div>
+    </div>
+
+    <!-- Open File Chooser Only  -->
+
+    <div class="ion-padding">
+        <ion-button expand="block" color="dark" (click)="openChooser()">Open File Chooser</ion-button>
+        <div>
+            <ion-list>
+                <ion-item>
+                    <!-- <ion-input type="text" [(ngModel)]="currentFile"></ion-input> -->
+                    {{currentFile}}
+                </ion-item>
+            </ion-list>
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Medicine List Api
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="back">
+
+    <ion-button class="myclass" expand="block" (click)="Funcation()">Navigate to Upload Page</ion-button>
+
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh" refreshingSpinner="crescent" refreshingText="Refreshing...">
+        </ion-refresher-content>
+    </ion-refresher>
+    <!-- <ion-card class="myclass"> -->
+    <ion-list class="myclass">
+        <ion-reorder-group (ionItemReorder)="onRenderItems($event)" disabled="false">
+            <ion-item *ngFor="let medicy of users">
+                <ion-reorder>
+                    <ion-label>
+                        <h2>Medicine Name: {{ medicy.medicine_name }} </h2>
+                        <h3>Medicine Volume: {{medicy.medicine_volume}} </h3>
+                        <h3>Medicine Type: {{medicy?.medicine_type?.medicine_type_name}} </h3>
+                        <h3>Status: {{medicy?.medicine_type?.status}} </h3>
+                    </ion-label>
+                </ion-reorder>
+            </ion-item>
+        </ion-reorder-group>
+    </ion-list>
+    <!-- </ion-card> -->
+
+    <ion-infinite-scroll #infiniteScroll (ionInfinite)="loadMore($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading Users...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+
+</ion-content>
