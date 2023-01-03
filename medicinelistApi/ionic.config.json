@@ -1,0 +1,7 @@
+{
+  "name": "medicinelistApi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

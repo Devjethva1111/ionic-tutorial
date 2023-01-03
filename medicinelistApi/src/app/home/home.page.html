@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Home
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+    <ion-card>
+        <ion-list *ngFor="let medicy of users.data">
+            <ion-item>
+                <ion-label>
+                    <h2>Medicine Name: {{ medicy.medicine_name }} </h2>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)" loadingSpinner="bubbles" loadingText="Loading Users...">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+
+</ion-content>
