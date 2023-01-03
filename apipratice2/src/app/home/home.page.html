@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+        <ion-title>
+            Home Page
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+    <!-- <ion-card height="40">
+        <ion-card-content text-center>
+
+            <h1 *ngIf="card">
+                <ion-avatar>
+                    <ion-img [src]="card.data?.avatar"></ion-img>
+                </ion-avatar>
+
+                <h1>Name : {{card.data?.first_name}} </h1>
+                <h2>Email : {{card.data?.email}}</h2>
+
+            </h1>
+        </ion-card-content>
+    </ion-card> -->
+    <!-- <ion-list>
+        <ion-item *ngIf="card">
+            <ion-avatar item-left>
+                <img src="{{card.data?.picture}}">
+            </ion-avatar>
+            <h2>{{card.data?.name.first}} {{card.data?.name.last}}</h2>
+            <p>{{card.data?.email}}</p>
+        </ion-item>
+    </ion-list> -->
+    <ion-card height="40" class="color">
+        <ion-card-content class="ion-text-uppercase">
+            <ion-list style="background-color:aquamarine ;">
+                <h1 *ngFor="let data of card?.results">
+                    <h1>{{data?.name?.first}}{{data?.name?.last}}</h1>
+                    <h2>{{data?.email}}</h2>
+                    <h3>{{data?.phone}}</h3>
+                </h1>
+            </ion-list>
+        </ion-card-content>
+    </ion-card>
+</ion-content>
