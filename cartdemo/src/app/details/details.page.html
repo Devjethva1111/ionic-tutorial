@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
+        <ion-title> {{single.name}} </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-item *ngIf="single">
+        <ion-label ion-padding>
+            <!--
+          <ion-slides [options]="slideOptsOne" #slideWithNav  (ionSlideDidChange)="SlideDidChange(sliderOne,slideWithNav)">
+            <ion-slide *ngFor="let s of sliderOne.slidesItems">
+                <img src= {{single.image}} >
+             </ion-slide>
+         </ion-slides> -->
+
+            <ion-slides [options]="slideOpts" pager>
+                <ion-slide>
+                    <img src={{single.image}} />
+                </ion-slide>
+                <ion-slide>
+                    <img src={{single.image1}} />
+                </ion-slide>
+                <ion-slide>
+                    <img src={{single.image2}} />
+                </ion-slide>
+                <ion-slide>
+                    <img src={{single.image3}} />
+                </ion-slide>
+            </ion-slides>
+            <ion-list>
+                <ion-label class="ion-text-center" color="dark"> Price: <s>{{single.price| currency:'INR'}}</s></ion-label>
+                <ion-label class="ion-text-center" color="dark">Discount Price: {{single.discount_price| currency:'INR'}}</ion-label>
+            </ion-list>
+            <hr class="new1">
+            <ion-label class="ion-text-wrap" color="primary">{{single.fullname}}</ion-label>
+            <hr class="new1">
+            <ion-list>
+                <ion-label>Model name: {{single.Model_name}}</ion-label><br>
+                <ion-label>Form Factor: {{single.Form_factor}}</ion-label><br>
+                <ion-label>Storage Capacity: {{single.Memory_Storage_Capacity}}</ion-label><br>
+                <h2 class="ion-text-wrap">About: {{single.About}}</h2>
+
+            </ion-list>
+        </ion-label>
+
+    </ion-item>
+
+    <ion-button (click)="addToCart(single)" expand="block" ion-button icon-left small>Add to cart </ion-button>
+</ion-content>

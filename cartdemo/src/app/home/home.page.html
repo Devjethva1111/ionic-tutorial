@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            E-commerce Card
+        </ion-title>
+        <ion-buttons slot="end">
+            <!-- <button ion-button icon-only> -->
+            <ion-badge *ngIf="products.length"></ion-badge>
+            <ion-icon name="cart"></ion-icon>
+            <!-- </button> -->
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row class="ion-horizontal">
+            <ion-col size="6" *ngFor="let p of products">
+                <ion-card class="ion-text-center">
+                    <ion-card-header>
+                        <div align="center">
+                            <ion-thumbnail (click)="detail(p)">
+                                <img src={{p.image}} />
+                            </ion-thumbnail>
+                        </div>
+                    </ion-card-header>
+                    <ion-card-content>
+                        <ion-label color="primary">{{p.name}}</ion-label> <br>
+                        <ion-label color="dark"> <s>{{p.price| currency:'INR'}}</s></ion-label> <br>
+                        <ion-label color="dark">{{p.discount_price| currency:'INR'}}</ion-label>
+                    </ion-card-content>
+                    <ion-button (click)="addToCart(p)" ion-button small>Add to cart </ion-button>
+                </ion-card>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
