@@ -1,0 +1,10 @@
+{
+  "name": "httpapiservice",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}

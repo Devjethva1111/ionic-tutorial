@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+        <ion-title>
+            Blank
+        </ion-title>
+        <ion-buttons slot="end">
+            <!-- <ion-button (click)="loggout()">
+        <ion-icon name="power"></ion-icon>
+      </ion-button> -->
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+    <!-- API for Get Data -->
+    <ion-card>
+        <ion-list>
+            <ion-item lines="none">
+                <ion-label>User List -->GET api</ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+
+    <ion-list>
+        <ion-item *ngIf="data">
+            <!-- <div> -->
+            <ion-label class="ion-text-center">{{data.id}} : {{data.first_name}}</ion-label>
+            <!-- </div> -->
+        </ion-item>
+    </ion-list>
+    <!-- end -->
+
+
+</ion-content>
