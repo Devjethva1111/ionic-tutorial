@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-title>
+            Blank
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <!-- API for Get Data -->
+    <!-- <ion-card>
+        <ion-list>
+            <ion-item lines="none">
+                <ion-label>User List GET api</ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-card> -->
+
+    <!-- <ion-list>
+        <ion-item *ngIf="data">
+            <ion-label class="ion-text-center">{{data.id}} : {{data.first_name}}</ion-label>
+        </ion-item>
+    </ion-list> -->
+
+    <ion-card>
+        <ion-list>
+            <!-- <ion-label *ngIf="data"> {{data.name}} </ion-label> -->
+            <ion-item *ngFor="let users of data">
+
+                <ion-avatar>
+                    <img src="{{ users.avatar }}">
+                </ion-avatar>
+
+                <ion-label>
+                    <ion-label>Name: {{users.first_name}} {{users.last_name}}</ion-label>
+                    <ion-label>Email: {{users.email}} </ion-label>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+
+</ion-content>
