@@ -1,0 +1,53 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>edit</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card style="color: #ceb92c">
+        <form [formGroup]="myForm" (ngSubmit)="onEdit()" novalidate>
+            <!-- Name Input -->
+            <ion-item lines="full">
+                <ion-label position="floating">Name</ion-label>
+                <ion-input formControlName="first_name" #fname type="text"></ion-input>
+            </ion-item>
+
+            <!-- Name Validation -->
+            <span class="error ion-padding" *ngIf="submitted || errorCtr.first_name.errors?.required && myForm.get('first_name').touched ">
+                Name is required.
+            </span>
+
+            <span class="error ion-padding" *ngIf="submitted || errorCtr.first_name.errors?.minlength && myForm.get('first_name').touched">
+                Min 3 chars long.
+            </span>
+
+            <span class="error ion-padding" *ngIf="submitted || errorCtr.first_name.errors?.pattern && myForm.get('first_name').touched ">
+                Enter Valid Character.
+            </span>
+            <!-- Last name -->
+
+            <ion-item lines="full">
+                <ion-label position="floating">Job </ion-label>
+                <ion-input formControlName="last_name" #lname type="text"></ion-input>
+            </ion-item>
+
+            <!-- Name Validation -->
+            <span class="error ion-padding" *ngIf="submitted || errorCtr.last_name.errors?.required && myForm.get('last_name').touched">
+                Job name is required.
+            </span>
+
+            <span class="error ion-padding" *ngIf="submitted || errorCtr.last_name.errors?.pattern && myForm.get('last_name').touched">
+                Enter Valid Character.
+            </span>
+
+            <!-- Button -->
+            <ion-button type="submit" color="danger" expand="block" [disabled]="myForm.invalid">
+                Submit
+            </ion-button>
+        </form>
+    </ion-card>
+</ion-content>

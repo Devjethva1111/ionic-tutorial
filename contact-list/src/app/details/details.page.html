@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>details</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card>
+        <ion-list>
+            <ion-item *ngIf="single">
+                <ion-label ion-padding>
+                    <h2>First Name: {{ single.first_name }}</h2>
+                    <h2>Last Name: {{ single.last_name }}</h2>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-card>
+</ion-content>

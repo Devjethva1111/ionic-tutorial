@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar>
+        <!-- Add button add in toolbar -->
+        <ion-button (click)="add()" slot="end"> Add </ion-button>
+        <ion-title> Contact List </ion-title>
+    </ion-toolbar>
+    <ion-searchbar color="light" placeholder="Search..." animated="true" debounce="200" (ionChange)="toggleSearch($event)"></ion-searchbar>
+</ion-header>
+
+<ion-content>
+    <!-- <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="arrow-dropdown" pullingText="Pull Down." refreshingSpinner="circles" refreshingText="Loading...">
+
+        </ion-refresher-content>
+    </ion-refresher> -->
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Pull to refresh" refreshingSpinner="circles" refreshingText="Refreshing...">
+        </ion-refresher-content>
+
+    </ion-refresher>
+
+    <!-- <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar> -->
+
+    <ion-card>
+        <ion-list>
+            <!-- | filter:filterTerm  -->
+            <ion-item-sliding *ngFor="let item of items ; let i = index ">
+                <ion-item>
+                    <!-- navigate list onclick to item one by one -->
+                    <ion-label (click)="detail(item)" ng-class="{ active: d.selected }">
+                        <!-- create list to add in static  -->
+                        <ion-label>Name: {{ item.first_name }}</ion-label>
+                        <ion-label>Job: {{ item.last_name}}</ion-label>
+                    </ion-label>
+                </ion-item>
+
+                <!-- Sliding create -->
+                <ion-item-options side="end">
+                    <ion-item-option color="danger" (click)="delete(i)" expandable>
+                        Delete
+                    </ion-item-option>
+                    <ion-item-option color="secondary" (click)="edit(i,item)">
+                        Edit
+                    </ion-item-option>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ion-list>
+    </ion-card>
+</ion-content>
