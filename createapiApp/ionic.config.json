@@ -1,0 +1,7 @@
+{
+  "name": "createapiApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
